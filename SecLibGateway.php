@@ -263,7 +263,9 @@ class SecLibGateway implements GatewayInterface {
 	 */
 	public function getAgent()
 	{
-		return new System_SSH_Agent;
+		$agent = new System_SSH_Agent;
+		$agent->startSSHForwarding($this->connection);
+		return $agent;
 	}
 
 	/**
